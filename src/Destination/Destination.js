@@ -1,104 +1,49 @@
-import React from 'react';
+import React from "react";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Destination = () => {
+  const [listDestination, setlistDestination] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://633ae6bf471b8c395577ddb4.mockapi.io/api/v1/Destination" 
+        
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data)
+        setlistDestination(data);
+      });
+  }, []);
   return (
     <section className="destination" id="destination">
-    <div className="heading">
-      <span>our destination</span>
-      <h1>Keep looking up</h1>
-    </div>
-    <div className="box-container">
-      <div className="box" data-aos="fade-up" data-aos-delay={150}>
-        <div className="image">
-          <img src="images/des-1.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
+      <div className="heading">
+        <span>our destination</span>
+        <h1>Keep looking up</h1>
       </div>
-      <div className="box" data-aos="fade-up" data-aos-delay={300}>
-        <div className="image">
-          <img src="images/des-2.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
+        <div className="box-container">
+      {listDestination.map((product,index) => {
+        return (
+        <NavLink to={`/Product-detail/${product.id}`}>
+          <div className="box" data-aos="fade-up" data-aos-delay={150}>
+            <div className="image">
+              <img src={product.image} alt="" />
+            </div>
+            <div className="content">
+              <p>{product.title}</p>
+              <NavLink to={`/Product-detail/${product.id}`}>
+                {product.city} <i className="fas fa-angle-right" />
+              </NavLink>
+            </div>
+          </div>
+        </NavLink>
+        )
+      })}
       </div>
-      <div className="box" data-aos="fade-up" data-aos-delay={450}>
-        <div className="image">
-          <img src="images/des-3.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
-      </div>
-      <div className="box" data-aos="fade-up" data-aos-delay={600}>
-        <div className="image">
-          <img src="images/des-4.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
-      </div>
-      <div className="box" data-aos="fade-up" data-aos-delay={750}>
-        <div className="image">
-          <img src="images/des-5.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
-      </div>
-      <div className="box" data-aos="fade-up" data-aos-delay={900}>
-        <div className="image">
-          <img src="images/des-6.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
-      </div>
-      <div className="box" data-aos="fade-up" data-aos-delay={1150}>
-        <div className="image">
-          <img src="images/des-7.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
-      </div>
-      <div className="box" data-aos="fade-up" data-aos-delay={1300}>
-        <div className="image">
-          <img src="images/des-8.jpg" alt="" />
-        </div>
-        <div className="content">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-          <a href="#">
-            read more <i className="fas fa-angle-right" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
-export default Destination ;
+export default Destination;
