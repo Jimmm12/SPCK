@@ -4,6 +4,7 @@ import Destination from "./Destination/Destination";
 import Gallery from "./Gallery/Gallery";
 import Blogs from "./Blogs/Blogs";
 import Home from "./Home/Home";
+import Register from "./Register/Register";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Destination" element={<Destination />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/Blogs" element={<Blogs />} />
+        <Route path="/Register" element = {<Register />} />
       </Routes>
       <Footer />
     </div>
