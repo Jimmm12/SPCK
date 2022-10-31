@@ -7,10 +7,10 @@ export const Footer = () => {
         <section className="footer">
         <div className="box-container">
           <div className="box" data-aos="fade-up" data-aos-delay={150}>
-            <a href="#" className="logo">
+            <NavLink to="/" className="logo">
               {" "}
               <span>T</span>ravel <span>W</span>arrior{" "}
-            </a>
+            </NavLink>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Obcaecati, ad?
@@ -55,7 +55,7 @@ export const Footer = () => {
             <h3>contact info</h3>
             <p>
               {" "}
-              <i className="fas fa-map" /> Delhi, india{" "}
+              <i className="fas fa-map" /> HaNoi, VietNam{" "}
             </p>
             <p>
               {" "}
@@ -87,7 +87,7 @@ export const Footer = () => {
         </div>
       </section>
       <div className="credit">
-        Coded by <span>Nhóm 2</span> | all rights reserved!
+         <span>Nhóm 2</span> | all rights reserved!
       </div>
     </div>
   )

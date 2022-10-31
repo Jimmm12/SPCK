@@ -6,6 +6,7 @@ import Gallery from "./Gallery/Gallery";
 import Blogs from "./Blogs/Blogs";
 import Home from "./Home/Home";
 import Productdetail from "./product/product_detail";
+import Register from "./Register/Register";
 function App() {
   return (
     <div>
@@ -18,6 +19,7 @@ function App() {
             </Route>
             <Route path="/Gallery" element={<Gallery />} />
             <Route path="/Blogs" element={<Blogs />} />
+            <Route path="/Register" element = {<Register />} />
           </Routes>
         <Footer /> 
     </div>
